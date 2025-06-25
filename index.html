@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paws & Tails - Premium Dog Shopping</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #8a5a44;
+            --secondary: #f4a261;
+            --accent: #e9c46a;
+            --light: #f8f1e5;
+            --dark: #2a363b;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://images.unsplash.com/photo-1586671267731-da2cf3ceeb80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2698&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .product-card {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        }
+        
+        .cart-item {
+            transition: all 0.2s ease;
+        }
+        
+        .cart-item:hover {
+            background-color: rgba(244, 162, 97, 0.1);
+        }
+        
+        .badge {
+            top: -10px;
+            right: -10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <i class="fas fa-paw text-2xl text-yellow-500 mr-2"></i>
+                    <span class="text-xl font-bold text-gray-800">Paws & Tails</span>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="text-gray-800 hover:text-yellow-600 font-medium">Home</a>
+                    <a href="#products" class="text-gray-800 hover:text-yellow-600 font-medium">Products</a>
+                    <a href="#about" class="text-gray-800 hover:text-yellow-600 font-medium">About</a>
+                    <a href="#contact" class="text-gray-800 hover:text-yellow-600 font-medium">Contact</a>
+                </div>
+                
+                <div class="flex items-center">
+                    <button id="cart-btn" class="relative p-2 text-gray-700 hover:text-yellow-600">
+                        <i class="fas fa-shopping-cart text-xl"></i>
+                        <span id="cart-count" class="badge absolute bg-yellow-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold">0</span>
+                    </button>
+                </div>
+                
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="p-2 text-gray-700">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white pb-4 px-4">
+            <a href="#" class="block py-2 text-gray-800 hover:text-yellow-600">Home</a>
+            <a href="#products" class="block py-2 text-gray-800 hover:text-yellow-600">Products</a>
+            <a href="#about" class="block py-2 text-gray-800 hover:text-yellow-600">About</a>
+            <a href="#contact" class="block py-2 text-gray-800 hover:text-yellow-600">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero flex items-center justify-center text-center py-32 text-white">
+        <div class="max-w-3xl px-4">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">Premium Products for Your Pup</h1>
+            <p class="text-xl mb-8">Discover the finest selection of dog food, toys, and accessories curated for your furry friend's happiness and well-being.</p>
+            <a href="#products" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-8 rounded-full transition duration-300 inline-block">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Featured Categories -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Shop by Category</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <a href="#" class="category-card bg-gray-100 rounded-lg overflow-hidden hover:shadow-lg transition duration-300">
+                    <div class="h-48 bg-gray-200 flex items-center justify-center">
+                        <i class="fas fa-bone text-5xl text-yellow-500"></i>
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="font-bold text-lg">Food & Treats</h3>
+                        <p class="text-gray-600 mt-1">Premium nutrition</p>
+                    </div>
+                </a>
+                
+                <a href="#" class="category-card bg-gray-100 rounded-lg overflow-hidden hover:shadow-lg transition duration-300">
+                    <div class="h-48 bg-gray-200 flex items-center justify-center">
+                        <i class="fas fa-dog text-5xl text-yellow-500"></i>
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="font-bold text-lg">Toys</h3>
+                        <p class="text-gray-600 mt-1">Fun for every pup</p>
+                    </div>
+                </a>
+                
+                <a href="#" class="category-card bg-gray-100 rounded-lg overflow-hidden hover:shadow-lg transition duration-300">
+                    <div class="h-48 bg-gray-200 flex items-center justify-center">
+                        <i class="fas fa-bed text-5xl text-yellow-500"></i>
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="font-bold text-lg">Beds & Furniture</h3>
+                        <p class="text-gray-600 mt-1">Comfort first</p>
+                    </div>
+                </a>
+                
+                <a href="#" class="category-card bg-gray-100 rounded-lg overflow-hidden hover:shadow-lg transition duration-300">
+                    <div class="h-48 bg-gray-200 flex items-center justify-center">
+                        <i class="fas fa-tshirt text-5xl text-yellow-500"></i>
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="font-bold text-lg">Apparel</h3>
+                        <p class="text-gray-600 mt-1">Stylish outfits</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Featured Products</h2>
+            
+            <div class="flex justify-center mb-8">
+                <div class="flex space-x-2 bg-gray-200 rounded-full p-1">
+                    <button class="filter-btn active px-4 py-2 rounded-full bg-white shadow-sm" data-category="all">All</button>
+                    <button class="filter-btn px-4 py-2 rounded-full hover:bg-white transition duration-200" data-category="food">Food</button>
+                    <button class="filter-btn px-4 py-2 rounded-full hover:bg-white transition duration-200" data-category="toys">Toys</button>
+                    <button class="filter-btn px-4 py-2 rounded-full hover:bg-white transition duration-200" data-category="accessories">Accessories</button>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Product cards will be dynamically generated here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-12">
+                    <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80" 
+                         alt="Happy dog" 
+                         class="rounded-lg shadow-xl w-full h-auto">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold mb-6">Our Story</h2>
+                    <p class="text-gray-700 mb-4">Founded in 2015, Paws & Tails started with a simple mission: to provide dog owners with high-quality products that promote the health and happiness of their furry companions.</p>
+                    <p class="text-gray-700 mb-6">We carefully select and test every product in our inventory to ensure it meets our strict quality standards. All our products are sustainably sourced and made with pet-safe materials.</p>
+                    <div class="flex space-x-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-yellow-500 text-2xl mr-2"></i>
+                            <span>100% Natural</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-yellow-500 text-2xl mr-2"></i>
+                            <span>Vet Approved</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Happy Tails from Our Customers</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="h-12 w-12 rounded-full bg-gray-300 mr-4 overflow-hidden">
+                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Customer" class="h-full w-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Sarah Johnson</h4>
+                            <div class="flex text-yellow-500">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"My golden retriever Max absolutely loves the organic treats from Paws & Tails. The quality is outstanding and he gets so excited every time I bring out the bag!"</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="h-12 w-12 rounded-full bg-gray-300 mr-4 overflow-hidden">
+                            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Customer" class="h-full w-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Michael Chen</h4>
+                            <div class="flex text-yellow-500">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"The orthopedic dog bed has made a huge difference for my senior Labrador. She sleeps much better now and seems to have less joint pain in the mornings."</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="h-12 w-12 rounded-full bg-gray-300 mr-4 overflow-hidden">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Customer" class="h-full w-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Emily Rodriguez</h4>
+                            <div class="flex text-yellow-500">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"Great selection of collars and leashes! The durable material has held up against my energetic German Shepherd's pulling much better than previous ones we've tried."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Get In Touch</h2>
+            
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-12">
+                    <h3 class="text-xl font-bold mb-4">Contact Information</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-yellow-500 mt-1 mr-4"></i>
+                            <div>
+                                <p class="font-medium">Address</p>
+                                <p class="text-gray-700">123 Dog Lane, Pet City, PC 90210</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i class="fas fa-phone-alt text-yellow-500 mt-1 mr-4"></i>
+                            <div>
+                                <p class="font-medium">Phone</p>
+                                <p class="text-gray-700">(555) 123-4567</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i class="fas fa-envelope text-yellow-500 mt-1 mr-4"></i>
+                            <div>
+                                <p class="font-medium">Email</p>
+                                <p class="text-gray-700">hello@pawsandtails.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold mt-8 mb-4">Store Hours</h3>
+                    <div class="space-y-2">
+                        <div class="flex justify-between">
+                            <span class="font-medium">Mon-Fri:</span>
+                            <span>9:00 AM - 7:00 PM</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="font-medium">Sat:</span>
+                            <span>10:00 AM - 6:00 PM</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="font-medium">Sun:</span>
+                            <span>11:00 AM - 5:00 PM</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h3 class="text-xl font-bold mb-4">Follow Us</h3>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-700 hover:bg-yellow-500 hover:text-white transition duration-200">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-700 hover:bg-yellow-500 hover:text-white transition duration-200
