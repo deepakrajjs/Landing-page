@@ -12,7 +12,7 @@ A modern, responsive landing page built with HTML.
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Screenshots](#screenshots)
+- [Screenshots](#screenshots)   
 - [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
